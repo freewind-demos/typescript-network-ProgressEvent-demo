@@ -1,2 +1,4 @@
 hello.js
 hello.js.map
+.parcel-cache/
+dist/

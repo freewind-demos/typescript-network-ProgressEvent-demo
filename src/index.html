@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network ProgressEvent Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network ProgressEvent Demo</h1>
+    <button id="interruptedRequest">模拟中断请求</button>
+    <div id="status">状态信息将显示在这里...</div>
+    <script type="module" src="./index.ts"></script>
+</body>
+</html>
