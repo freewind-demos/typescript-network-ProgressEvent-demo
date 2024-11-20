@@ -16,6 +16,35 @@
    - 网络错误（error）
    - 网络连接不稳定
 
+3. XMLHttpRequest状态变化
+   - ReadyState变化顺序：1(OPENED) -> 2(HEADERS_RECEIVED) -> 3(LOADING) -> 4(DONE)
+   - 请求被中断时，status会重置为0，但可以通过变量保存最后的有效状态码
+   - 在LOADING阶段(ReadyState=3)会收到多次progress事件，可以跟踪已接收的字节数
+
+4. 状态码行为
+   - 正常请求时status为200（或其他HTTP状态码）
+   - 请求被中断时status重置为0
+   - 需要手动保存最后一个有效的status，因为abort后无法从xhr对象获取
+
+5. 数据接收进度
+   - 通过progress事件可以获取：
+     - event.loaded：已接收的字节数
+     - event.total：总字节数（如果服务器提供Content-Length）
+     - event.lengthComputable：是否可计算进度百分比
+
+6. UI改进
+   - 使用textarea显示状态信息
+   - 自动滚动到最新信息
+   - 保持原始格式（换行、空格）
+   - 支持轻松复制日志内容
+   - 使用等宽字体提高可读性
+
+7. 详细的错误处理信息
+   - 详细的错误信息格式化
+   - 包含请求被中断时的完整状态
+   - 显示状态变化历史
+   - 保留接收到的字节数信息
+
 ## 如何运行
 
 1. 安装依赖：
